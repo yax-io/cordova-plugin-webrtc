@@ -23,15 +23,9 @@ This project aims to implement the full WebRTC API on Cordova.
 - __Android 4.0+__ coming soon
 
 ## Installation
-The plugin is not available yet on the Cordova Plugin Registry.
-
-Execute the following in your cordova project:
 
 ```shell
-# for latest version
-cordova plugin add git@github.com:remotium/cordova-plugin-webrtc.git
-# for specific branch
-cordova plugin add git@github.com:remotium/cordova-plugin-webrtc.git@branch
+cordova plugin add cordova-plugin-webrtc
 ```
 
 ## Usage
