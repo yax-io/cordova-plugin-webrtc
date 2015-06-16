@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-webrtc"
-    version="0.1.1">
+    version="0.1.3">
 
     <name>WebRTC</name>
     <description></description>
@@ -27,7 +27,7 @@
 
         <hook type="before_plugin_install" src="scripts/pull_webrtc_library.js" />
 
-		<source-file src="libs/ios/libwebrtc.a" framework="true" />
+        <source-file src="libs/ios/libwebrtc.a" framework="true" />
         <header-file src="libs/ios/Headers/RTCAudioSource.h" target-dir="libs/header" />
         <header-file src="libs/ios/Headers/RTCAudioTrack.h" target-dir="libs/header" />
         <header-file src="libs/ios/Headers/RTCDataChannel.h" target-dir="libs/header" />

@@ -5,19 +5,19 @@ var webrtcPodUrl = 'https://s3.amazonaws.com/libjingle/9357/Release/0/libWebRTC.
 //var webrtcPodUrl = 'http://www.colorado.edu/conflict/peace/download/peace.zip'
 
 var path = require('path');
-var spawn = require('child_process').spawn;
+var childProcess = require('child_process');
 var https = require('https');
 var fs = require('fs');
 
 var tempFile = path.join(process.cwd(), '.tmp.libwebrtc');
-var mkdirp = require('mkdirp');
 
 module.exports = function (context) {
 
     var destFolder = path.join(context.opts.plugin.dir, 'libs/ios/');
     var Q = context.requireCordovaModule('q');
     var deferral = new Q.defer();
-    mkdirp.sync(destFolder);
+    
+    childProcess.spawnSync('mkdir', ['-p', destFolder]);
 
     console.log('Fetching WebRTC libraries, stand by...');
 
@@ -26,7 +26,7 @@ module.exports = function (context) {
         res.on('end', function () {
             console.log('Extracting...');
 
-            var decomp = spawn('tar', ['jxf', tempFile, '--strip', '1'], {
+            var decomp = childProcess.spawn('tar', ['jxf', tempFile, '--strip', '1'], {
                 cwd: destFolder
             });
             decomp.on('error', function (err) {
@@ -43,5 +43,4 @@ module.exports = function (context) {
     }).on('error', function (err) {
         throw err;
     });
-    return deferral.promise;
-};
+    return deferral.promise;};
