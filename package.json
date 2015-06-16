@@ -13,12 +13,11 @@
   },
   "devDependencies": {
     "bower": "^1.3.7",
-    "download": "^4.1.2",
-    "download-status": "^2.1.1",
     "gulp": "^3.8.8",
     "gulp-load-plugins": "^0.6.0",
     "gulp-webpack": "^0.3.0",
     "jshint-stylish": "^0.4.0",
+    "mkdirp": "^0.5.1",
     "webpack": "^1.4.0-beta6",
     "webpack-dev-server": "^1.6.4"
   },
