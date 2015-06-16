@@ -2,6 +2,9 @@
 WebRTC Plugin for Cordova
 =================================
 
+[![Dependency Status](https://david-dm.org/remotium/cordova-plugin-webrtc.svg)](https://david-dm.org/remotium/cordova-plugin-webrtc)
+
+
 ### NOTE: This project is not production ready.
 This project aims to implement the full WebRTC API on Cordova.
 
