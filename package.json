@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-webrtc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Cordova WebRTC Plugin",
   "main": "gulpfile.js",
   "author": "Remotium Inc.",
