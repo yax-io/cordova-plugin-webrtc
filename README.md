@@ -106,4 +106,3 @@ We use the github issue tracker and pull request frameworks to accept contributi
 
 This software is released under the Apache 2.0 License.
 
-© 2015 Remotium, Inc. All rights reserved
