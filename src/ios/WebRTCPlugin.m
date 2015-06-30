@@ -425,8 +425,6 @@
                                        mediaStreamWithLabel:@"webrtc"];
         NSNumber *streamId = [self addMediaStream:mediaStream];
 
-        RTCVideoTrack *videoTrack;
-        RTCAudioTrack *audioTrack;
         NSArray *jsVideoTracks = [NSArray array];
         NSArray *jsAudioTracks = [NSArray array];
 
@@ -457,15 +455,18 @@
                 [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                 return;
             } else {
-                RTCVideoCapturer *capturer = [RTCVideoCapturer capturerWithDeviceName:cameraID];
-                RTCVideoSource* videoSource = [_rtcPeerConnectionFactory videoSourceWithCapturer:capturer
-                                                                                     constraints:constraints];
-                videoTrack = [_rtcPeerConnectionFactory videoTrackWithID:@"videotrack1" source:videoSource];
-                [mediaStream addVideoTrack:videoTrack];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    RTCVideoCapturer *capturer = [RTCVideoCapturer capturerWithDeviceName:cameraID];
+                    RTCVideoSource* videoSource = [_rtcPeerConnectionFactory videoSourceWithCapturer:capturer
+                                                                                         constraints:constraints];
+                    RTCVideoTrack *videoTrack = [_rtcPeerConnectionFactory videoTrackWithID:@"videotrack1" source:videoSource];
+                    [mediaStream addVideoTrack:videoTrack];
+                });
+
                 jsVideoTracks = @[@{
-                                      @"kind": videoTrack.kind,
+                                      @"kind": @"nokind",
                                       @"id": @(0), //TODO
-                                      @"label": videoTrack.label,
+                                      @"label": @"videotrack1",
                                       @"enabled": @YES,
                                       @"muted": @NO
                                       }];
@@ -483,8 +484,8 @@
                 constraints = [self constraintsFromArg:dConstraints[@"audio"]];
             }
 
-            audioTrack = [_rtcPeerConnectionFactory
-                          audioTrackWithID:@"audiotrack1"];
+            RTCAudioTrack *audioTrack = [_rtcPeerConnectionFactory
+                                         audioTrackWithID:@"audiotrack1"];
             //todo javascript addtrack callback
             [mediaStream addAudioTrack:audioTrack];
             jsAudioTracks = @[@{
