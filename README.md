@@ -5,7 +5,7 @@ WebRTC Plugin for Cordova
 [![Dependency Status](https://david-dm.org/remotium/cordova-plugin-webrtc.svg)](https://david-dm.org/remotium/cordova-plugin-webrtc)
 
 
-### NOTE: This project is not production ready.
+##### NOTE: This code might require special tailoring to adapt to your use case.
 This project aims to implement the full WebRTC API on Cordova.
 
 - Shim implementations:
@@ -67,8 +67,8 @@ navigator.getUserMedia({video: true},
 ### Implementation details
 To make this implementation work *almost* seamless with the WebRTC standard, we use some *hacks* that allow us to overlay the native WebRTC video views on the page.
 
-- Use MutationObserver to listen for changing <video> tags.
-- Implement MediaStream on top of Blob, so it is compatible with URL.createObjectURL.
+- Use MutationObserver to listen for changing `<video>` tags.
+- Implement MediaStream on top of Blob, so it is compatible with `URL.createObjectURL`.
 
 ## How to build for development
 You shall already have the *npm* tool (required for cordova). Just do:
