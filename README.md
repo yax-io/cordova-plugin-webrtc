@@ -33,7 +33,8 @@ Just use exactly the same WebRTC code as you would be using for a browser page!
 Bear in mind the following quirks:
 
 - Only use the WebRTC related APIs after getting cordova's *deviceReady* event.
-- Use `<webrtc-video>` tag instead of `<video>` if you dont want any video player skin to be shown. If you do that, you'll need to use el.setAttribute('src', ...) instead of el.src for the MutableObserver to detect changes in the 'src' element.
+- Use `<webrtc-video>` tag instead of `<video>` if you dont want any video player skin to be shown. Also, you will need to use `element.setAttribute('src', ...)` instead of `element.src` for the MutableObserver to detect changes in the non-standard `'src'` element.
+
 Example:
 
 ```javascript
@@ -100,6 +101,7 @@ We use the github issue tracker and pull request frameworks to accept contributi
 - All kinds of tests
 - Support for other platforms
 - Better object cleanup
+- Automatic resizing of DOM element to video
 - ...
 
 ## License
