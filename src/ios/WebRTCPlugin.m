@@ -464,7 +464,7 @@
                 });
 
                 jsVideoTracks = @[@{
-                                      @"kind": @"nokind",
+                                      @"kind": @"video",
                                       @"id": @(0), //TODO
                                       @"label": @"videotrack1",
                                       @"enabled": @YES,
