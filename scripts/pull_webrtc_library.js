@@ -1,8 +1,7 @@
 'use strict'
 
 // this repository is the same as used by CocoaPods libjingle_peerconnection
-var webrtcPodUrl = 'https://s3.amazonaws.com/libjingle/9357/Release/0/libWebRTC.tar.bz2';
-//var webrtcPodUrl = 'http://www.colorado.edu/conflict/peace/download/peace.zip'
+var webrtcPodUrl = 'https://s3.amazonaws.com/libjingle/9792/Release/0/libWebRTC.tar.bz2';
 
 var path = require('path');
 var childProcess = require('child_process');
